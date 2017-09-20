@@ -1,0 +1,120 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[a4paper, 11pt, oneside, listof=entryprefix]{scrbook} % KOMA script class, which creates an output suitable to the desired book, listof=entryprefix defines the listoffigures to show the fig prefix (https://komascript.de/node/1911)
+\usepackage[backend=biber, style=authoryear-comp, uniquename=true, maxcitenames=2, texencoding=utf-8, bibencoding=utf-8]{biblatex}%Zitationssystem einbinden und konfigurieren
+\usepackage[left=30mm,right=20mm,top=25mm,bottom=22mm]{geometry} % Anpassung der Seitengröße
+\usepackage{hyperref} %Verlinkung des Inhaltverzeichnisses [hidelinks] → Verbirgt sichtbare Links
+\usepackage[ngerman]{babel} %deutsches Sprachpaket nutzen
+\usepackage{graphicx} % wichtig für Grafiken
+\usepackage[onehalfspacing]{setspace} % Zeilenabstand
+\usepackage{tabularx} % wichtig für Tabellen
+\usepackage{wrapfig} % wichtig für eingebettete Bilder im Fließtext
+\usepackage{xltxtra} %wichtig für xelatex
+\usepackage{xunicode, xcolor} %wichtig für xelatex
+\usepackage{lmodern} % nötig für Durchsuchbarkeit des pdf-Dokuments
+\usepackage[margin=10pt,font=small,labelfont=bf]{caption} %Definition der Unterschriften
+\usepackage{setspace} %Absätze mit definiertem Zeilenabstand erstellen
+\usepackage[babel,german=quotes]{csquotes} %wird für die Kombination Babel und Biblatex benötigt
+\usepackage{amsmath} %wichtig für Formeln
+\usepackage{pdfpages} %wichtig bei Einbindung kompletter pdf-Dateien
+\usepackage{acronym} % Abkürzungen
+\usepackage[automark,headsepline,plainheadsepline]{scrlayer-scrpage} % important to set the page style in the KOMA script book class
+\usepackage{listings} % import to display code blocks
+\usepackage{chngcntr} % avoids reset of figure and table enumeration at each chapter
+\usepackage{scrhack} % avoids errors with koma script classes
+%\usepackage{tocloft} 
+
+\captionsetup[figure]{labelfont=bf,textfont=it,singlelinecheck=false,justification=RaggedRight}
+\captionsetup[table]{labelfont=bf,singlelinecheck=false,justification=RaggedRight}
+\setmainfont[Mapping=tex-text]{Noto Sans}
+\setsansfont[Mapping=tex-text]{Noto Sans}
+\onehalfspacing
+\setlength{\parskip}{6pt} %sets height of paragraphs
+\sloppy % automatically separates words at ends of lines
+
+\pagestyle{scrheadings} % creates header compatible with KOMA-script classes, as the file uses KOMA script in its scrbook class
+\clearpairofpagestyles % removes footer with page number
+\ihead*{\rightmark} % sets title to left side of page header
+\ohead*{\thepage} % sets pagenumber to right side of page header
+\addtokomafont{pagehead}{\normalfont} % sets font for page header
+\renewcommand\chaptermarkformat{\ifnumbered{chapter}{\chapapp\ \thechapter. \ }{}} % sets format for chapter in header
+
+\renewcommand{\labelnamepunct}{\addcolon\space} % replaces the dot behind the citation name in the bibliography, at the end of the file, with a colon → style: author(year): and so on
+\renewcommand{\chaptermark}[1]{\markboth{}{#1}} % removes chapter number from header
+\renewcommand{\chapterheadstartvskip}{} % Makes chapter titles start right at the beginning of the page
+
+\counterwithout{figure}{chapter} % set up continous enumeration for figures
+\counterwithout{table}{chapter} % set up continous enumeration for tables
+
+\renewcaptionname{ngerman}{\figurename}{Abb.}
+\renewcaptionname{ngerman}{\tablename}{Tab.}
+
+\hypersetup{
+  pdftitle={Schnittstellenbeschreibung in der Milchkuhhaltung},
+  pdfsubject={APIs, Milchkuhhaltung, Landwirtschaft, ADIS, ADED},
+  pdfauthor={Thomas Cyrus Reza Rahimi},
+  pdfkeywords={},
+  bookmarksopen=true,
+}
+
+\lstset{ %code display settings
+  backgroundcolor=\color{white},
+  breakatwhitespace=false,
+  breaklines=true,
+  frame=single,
+  numbers=left,
+  numbersep=5pt,
+  showstringspaces=false,
+  keepspaces=false,
+  showspaces=false,
+  breaklines=true,
+  commentstyle=\color{gray},
+  tabsize=4,
+  numberstyle=\tiny\color{gray},
+  basicstyle=\fontsize{10}{12}\ttfamily
+}
+
+\bibliography{Schnittstellen_Milchkuehe}
+  \title{Schnittstellen für den Einsatz in der Haltung von Milchkühen}
+  \author{Thomas Rahimi}
+  \date{}
+  
+\begin{document}
+\begin{titlepage}
+ \begin{center}
+  \textbf{\Huge Schnittstellen für den Einsatz in der Haltung von Milchkühen}\\
+  \bigskip
+  Thomas Rahimi
+  \end{center}
+  \end{titlepage}
+  \newpage
+ \thispagestyle{empty}
+
+ \clearpage
+ \phantomsection
+ \addcontentsline{toc}{chapter}{Inhaltverzeichnis}
+ \tableofcontents
+ \thispagestyle{empty}
+ \listoffigures
+ \addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
+ \thispagestyle{empty}
+ \listoftables
+ \addcontentsline{toc}{chapter}{Tabellenverzeichnis}
+ \thispagestyle{empty}
+ \newpage
+
+ \input{Abkuerzungen} % enthält: Abkürzungen
+ \newpage
+ 
+ %\include{}
+ 
+ \input{Einleitung} % enthält Einleitung, Material und Methoden
+ 
+ \input{Datenquellen_Rinderhaltung}  % enthält Datenerfassung für die Haltung von Milchkühen, Tiermeldung in Deutschland und Österreich, Datenerfassung für Zuchtwertschätzung und Management, Weitere Datenerfassung, Definitionen für den Austausch von Daten, Datenaustausch zwischen Anwendungen in der Haltung von Milchkühen
+ \printbibliography[title={Literaturverzeichnis}]
+ \addcontentsline{toc}{chapter}{Literaturverzeichnis}
+ \input{Glossar} % enthält Glossar
+ 
+\end{document}
+

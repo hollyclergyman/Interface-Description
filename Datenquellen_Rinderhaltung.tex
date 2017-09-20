@@ -1,0 +1,136 @@
+ % !TEX root = Ausarbeitung.tex
+
+\chapter{Datenerfassung für die Haltung von Milchkühen}
+In der modernen Haltung von Milchkühen werden sehr unterschiedliche Daten automatisiert erfasst, die sowohl betrieblichen als auch überbetrieblichen Zwecken dienen. Gerade für das einzelbetriebliche Management von Milchkühen sind Kennzahlen, die sich aus den erfassten Daten ergeben, zur Bewertung des Bestandes und der jeweiligen Tiere notwendig \autocite[261]{bostedt_fruchtbarkeitsmanagement_2003}.\\
+Die Erfassung von Rindern in überbetrieblichen Datenbanken wird durch die gesetzlich festgelegten Anforderungen an die Nachverfolgbarkeit von Rindern und die Belange der Zuchtwertschätzung bestimmt \autocite[716]{de_vries_m._exploring_2014}. Die Erfassung von Daten für die Zuchtwertschätzung basiert dabei auf freiwilliger Basis der teilnehmenden Betriebe \autocite[716]{de_vries_m._exploring_2014}. Demgegenüber erfolgt die Erfassung von Daten auf Ebene des Einzelbetriebs abhängig von den vorhandenen technischen Möglichkeiten und Notwendigkeiten. Der Datenaustausch zwischen den verschiedenen Systemen ist von der verwendeten Hard- und Software des jeweiligen Betriebes abhängig \autocite[4]{schulze_c._hybride_2008}.
+\par \noindent Für die Nachverfolgbarkeit von Rindern ist die EG-Verordnung (EG) Nr. 820/97 bindend, entsprechend der die Markierung und Meldung von Tieren zu erfolgen hat \autocite{hi-tier_rinder-datenbank_2015}. Die Durchführung der Tiermarkierung, Erfassung der zugehörigen Stammdaten und der Erfassung von Tierereignissen obliegt den Mitgliedsstaaten der EU und wird innerhalb der Länder von den zuständigen Stellen bearbeitet. 
+
+\section{Tiermeldung in Deutschland und in Österreich}
+In Deutschland benennen die Bundesländer, als Träger der Agrarverwaltung, Stellen, die für die Organisation der Tierkennzeichnung und der Erfassung der Stammdaten im Rahmen des Hi-Tier verantwortlich sind \autocite{hi-tier_regionalstellen_2015}. 
+In Österreich ist die ama für die Organisation der Tierkennzeichung und die Erfassung der Tierdaten zuständig \autocite{agrarmarkt_austria_ama_2016}.
+Meldepflichtig sind dabei alle Ereignisse, die für die Zuordnung und Nachverfolgbarkeit einzelner Tiere wichtig sind, wie zum Beispiel:
+\begin{itemize}
+	\item Geburt \autocite{hi-tier_hi-tier_2015}
+	\item Ver- und Ankauf \autocite{hi-tier_hi-tier_2015}
+	\item Schlachtung \autocite{hi-tier_hi-tier_2015}
+	\item Verendung \autocite{hi-tier_hi-tier_2015}
+\end{itemize}
+Weiterhin lässt sich der Gesundheitsstatus der Tiere bezüglich BVD, BHV1 und BTV eintragen, sowie der Tierbestand für die amtliche Dokumentation des Einsatzes von Antibiotika über das Hi-Tier ausführen \autocite{hi-tier_hi-tier_2017}. 
+Für die direkte, manuelle Eingabe durch den Landwirt steht dabei in Deutschland eine Website zur Verfügung (\url{https://www1.hi-tier.de/HitCom/login.asp}), weitere Schnittstellen für externe Programme sind:
+\begin{itemize}
+	\item Die Übertragung der Daten mittels einer REST-Schnittstelle unter folgender URL: \url{https://www4.hi-tier.de/HitCom2/}. Die Übertragung von PUT und POST-Parametern erfolgt dabei wahlweise als xml- oder json-Dateien
+	\item Die Übertragung der Daten über eine ISO-8859-1 kodierte Text-Datei, die an folgenden Server geschickt wird: 212.18.9.50:2222 \autocite{hi-tier_hitp-spezifikation_2016}
+\end{itemize}
+Weiterhin ist auch die analoge Meldung von Ereignissen, mittels ausgedruckter Papierbelege möglich \autocite{hi-tier_rinder-datenbank_2015}.
+In Österreich kann die Meldung von Ereignissen nur über die Website \url{https://services.ama.at/servlet/} oder über Papierbelege erfolgen \autocite{landwirtschaftskammer_salzburg_tierkennzeichnungen_????}.\\
+Die Speicherung und Verarbeitung der anfallenden Daten übernehmen zwei unterschiedliche Unternehmen, der RDV in Bayern, Baden-Württemberg, Schleswig-Holstein, Nordrhein-Westfalen und Österreich \autocite{rdv_rdv_????} und das rzv in den übrigen deutschen Bundesländern. 
+
+\section{Datenerfassung für Zuchtwertschätzung und Management}
+Für die Zuchtwertschätzung und das Management von Milchkühen werden wesentlich mehr Daten erfasst, die von den jeweiligen Zuchtprogrammen und den Notwendigkeiten der Betriebe abhängen. Aus diesen Daten werden Zuchtwerte für die einzelnen Kühe berechnet, in die unterschiedliche Gewichtungen für verschiedene phänotypische Merkmale einfließen sowie Anpassungen im Management der Kühe vornehmen. Dabei lassen sich allgemein folgende Datenbereiche charakterisieren und miteinander verknüpfen:
+\begin{itemize}
+	\item Fütterungs- und Rationsdaten
+	\item Gesundheits- und Fruchtbarkeitsdaten und
+	\item Leistungsdaten
+\end{itemize}
+Durch eine Integration der verschiedenen Daten lassen sich Synergieeffekte bei der Entscheidungsunterstützung realisieren sowie Zeitreihenanalysen für die Optimierung einzelner Prozesse vornehmen \autocite[4 ff]{schulze_c._hybride_2008}.\\
+Ein Beispiel für die Erhebungen von Gesundheitsdaten ist die Erfassung von Behandlungsmaßnahmen und Diagnosen während der Klauenpflege, im Rahmen des Klauenfitnet-Projektes, bei dem tierbezogene Daten zum Bewegungsapparat von Milchkühen erfasst und für den Landwirt gebündelt werden \autocite{klauenfitnet_programm_????}. Dafür werden folgende Daten erfasst: 
+\begin{itemize}
+	\item die Behandlungsdaten von Milchkühen \autocite{klauenfitnet_bausteine_????}
+	\item die Daten der MLP, um eine Korrelation zwischen den unterschiedlichen Datenpunkten herstellen zu können \autocite{klauenfitnet_bausteine_????}
+	\item Klimadaten, um Rückschlüsse auf Hitzestress der Milchkühe zu ermöglichen \autocite{klauenfitnet_bausteine_????}
+\end{itemize}
+Die Erfassung von Behandlungsdaten erfolgt erfolgt mittels einer speziellen Softwarelösung für Klauenpfleger, mittels der sich eine Verknüpfung zwischen den Gesundheitsdaten der Kühe und anderen Tierdaten erstellen lässt \autocite{klauenfitnet_bausteine_????}. d
+Die gesammelten Daten lassen sich ebenfalls in Herdenmanagementsoftware einlesen, um betroffene Tiere besser betreuen zu können.\\
+Für die Erfassung von MLP-Daten, gemäß dem Standard der deutschen LKVen, stehen automatisierte Routinen in Herdenmanagement-Programmen zur Verfügung, die einen Abgleich der geprüften Tiere mit den, im Bestand verzeichneten Tieren, ermöglichen. In Österreich existieren solche Routinen derzeit nicht. Die Rückmeldung an die Tierhaltungsbetriebe bezüglich der individuellen Kuh umfasst in Deutschland:
+\begin{itemize}
+	\item Milchmenge \autocite{landeskontrollverband_schleswig-holstein_e.v._milchleistungsprufung_????}
+	\item Fett- und Eiweißgehalt der Milch \autocite{landeskontrollverband_schleswig-holstein_e.v._milchleistungsprufung_????}
+	\item Fett- und Eiweißquotient der Milch, als Information über den Stoffwechsel der Kuh \autocite{landeskontrollverband_schleswig-holstein_e.v._milchleistungsprufung_????}
+	\item Zellzahlen zur Beurteilung der Eutergesundheit \autocite{landeskontrollverband_schleswig-holstein_e.v._milchleistungsprufung_????}
+	\item Milchharnstoff zur Kontrolle der Fütterung \autocite{landeskontrollverband_schleswig-holstein_e.v._milchleistungsprufung_????}
+	\item aktuelle Milchleistung auf 305 Tage gerechnet \autocite{landeskontrollverband_schleswig-holstein_e.v._milchleistungsprufung_????}
+	\item aktueller Mittelwert der Milchleistung auf 305 Tage gerechnet \autocite{landeskontrollverband_schleswig-holstein_e.v._milchleistungsprufung_????}
+	\item Zuchtwert \autocite{landeskontrollverband_schleswig-holstein_e.v._milchleistungsprufung_????}
+	\item Abstammung \autocite{landeskontrollverband_schleswig-holstein_e.v._milchleistungsprufung_????}
+	\item das zuletzt geborene Kalb \autocite{landeskontrollverband_schleswig-holstein_e.v._milchleistungsprufung_????}
+	\item Trächtigkeitsstatus der Kuh \autocite{landeskontrollverband_schleswig-holstein_e.v._milchleistungsprufung_????}
+	\item Belegungsdaten nach der letzten Kalbung und eventuell Anzeige fehlender Belegungsdaten \autocite{landeskontrollverband_schleswig-holstein_e.v._milchleistungsprufung_????}
+\end{itemize}
+Über die Informationen, die auf Einzeltiere bezogen sind, hinaus, bekommen die Tierhaltungsbetriebe Daten über die gesamte Prüfungsgruppe zurückgemeldet. Diese Daten umfassen: 
+\begin{itemize}
+	\item durchschnittliche Leistung und Zellzahl am Prüftag \autocite{landeskontrollverband_schleswig-holstein_e.v._milchleistungsprufung_????}
+	\item Durchschnittsleistung seit Beginn des Prüfjahres und in den letzten 12 Monaten als gleitender Schnitt \autocite{landeskontrollverband_schleswig-holstein_e.v._milchleistungsprufung_????}
+	\item eine Zusammenfassung der Harnstoffwerte gruppiert nach Laktationsstadium \autocite{landeskontrollverband_schleswig-holstein_e.v._milchleistungsprufung_????}
+	\item eine Grafik zur Beurteilung der Fütterung bezüglich Energie- und Proteinversorgung \autocite{landeskontrollverband_schleswig-holstein_e.v._milchleistungsprufung_????}
+	\item einen Bericht zur Eutergesundheit mit Kennzahlen zur Eutergesundheit \autocite{landeskontrollverband_schleswig-holstein_e.v._milchleistungsprufung_????}
+	\item einen Abkalbekalender \autocite{landeskontrollverband_schleswig-holstein_e.v._milchleistungsprufung_????}
+\end{itemize}
+In anderen Ländern werde für die MLP noch weitere Daten erhoben, diese umfassen in den Niederlanden die Erfassung freier Fettsäuren und Buttersäure bildenden Bakterien \autocite[717]{de_vries_m._exploring_2014}. Als kostenpflichtige Zusatzleistungen werden teilweise noch weitere Analysen angeboten, zum Beispiel die Erfassung von Trächtigkeiten über Milchproben in Dänemark \autocite{_pregnancy_????}, der Test auf Beta-Hydroxybutyrat zur Erkennung von Ketose \autocite{_new_????} und die Erkennung von Entzündungskeimen \autocite{_oversigt_????}.
+Neben der Erkennung physiologischer Merkmale aus der MLP werden in Schweden weitere managementbezogene Größen mittels der MLP ermitteln, wie zum Beispiel der Anteil von Laktationstagen am Jahr oder der Anteil der abgelieferten Milch an der ermolkenen Milchmenge \autocite{vaxa_sverige_alla_2017}.\\
+Der elektronische Austausch von Daten für Zucht- und Managementzwecke erfolgt in Deutschland im ADIS-ADED-Format als Textdatei. Diese Datei wird zwischen dem teilnehmenden Betrieb, dem zuständigen LKV und dem zuständigen Rechenzentrum ausgetauscht. Die Rückmeldung an den Betrieb erfolgt ebenfalls über ADIS-ADED-formatierte Dateien, die in moderne Herdenmanagement-Software eingelesen werden können \autocite{landeskontrollverband_schleswig-holstein_e.v._milchleistungsprufung_????}. Alternativ zum elektronischen Datenaustausch ist auch ein analoger Austausch mittels Papier möglich.
+
+\section{Weitere Datenerfassung}
+Zusätzlich zu den Erfassungen der MLP sowie der Abhängig von der eingesetzten Technik, werden im Einzelbetrieb wesentlich mehr Daten kontinuierlich erfasst. Dadurch ergibt sich ein wesentlich besserer Überblick über die Bestandssituation der Herde und der Einzeltiere. Neben den bereits genannten Daten der überbetrieblichen Erfassung, wie zum Beispiel der MLP und der Tiermeldung, können folgende Daten, größtenteils automatisiert, erfasst werden:
+\begin{itemize}
+	\item Milchmenge je Gemelk,
+	\item somatische Zellen der Gemelke und teilweise nach Phase des Gemelks,
+	\item Körpertemperatur,
+	\item Pansen-pH,
+	\item Wiederkaufrequenz und Zahl der Kauschläge pro Minute,
+	\item Besamungszeitpunkte und Kalbungsereignisse,
+	\item Aktivitätsrate, Lahmheiten und Brunsten sowie
+	\item die Futteraufnahme einzelner Tiere
+\end{itemize}
+Der Grad an Automatisierung und Formalisierung der Datenerfassung variiert dabei zwischen den unterschiedlichen Betrieben.
+Aus regelmäßig erfassten Bestands- und Tierdaten lassen sich Kennzahlen mit hoher Samplingrate erstellen, die Aufschluss über die Gesundheit, Fruchtbarkeit und Verdauung der Tiere geben \autocite[261]{bostedt_fruchtbarkeitsmanagement_2003}. Auf Grundlage dessen lässt sich das Management der Tiere anpassen und optimieren.\\ 
+Die Datenorganisation auf den Betrieben lässt sich mit Hilfe von Herdenmanagementsoftware vereinfachen und an größere Bestände anpassen. Unterschiede in der Herdenmanagementsoftware lassen sich in folgenden Punkten ausmachen:
+\begin{itemize}
+	\item lokale Installation auf dem jeweiligen Betrieb, Ausführung und Zugriff dann vor Ort oder Ausführung in einem zentralisierten Rechenzentrum und Zugriff über Web-Schnittstellen, wie zum Beispiel Web-Browser
+	\item Optimierung der Software-Lösung auf einzelne Produkte, wie zum Beispiel Melkstände eines Herstellers und Offenheit für andere Systeme
+	\item Integration von Software-Lösungen über verschiedene Geräte-Kategorien hinweg, zum Beispiel Smartphones, Tablets und Computer
+	\item Vorhandene Schnittstellen zu weiteren Partnern der landwirtschaftlichen Prozesskette, wie zum Beispiel Tierärzten oder Klauenpflegern.
+	\item Support und Support-Level für die Lösungen
+\end{itemize}
+
+\section{Definitionen für den Austausch von Daten}
+Für den elektronischen Austausch landwirtschaftlicher Datensätze zwischen unterschiedlichen Teilen der Prozesskette in der Rinderhaltung existieren internationale Standards durch die ISO-Norm 11788 (Aufbau einer ADED-Datei), die ISO-Norm 11788-1 (Aufbau einer ADED-Datenbank), die ISO-Norm 11787 (ADIS-Syntax) und die ISO-Norm 11788-2 (rinderspezifische Erweiterung) \autocite[27]{n.n._adis/aded_2015}. Auf nationaler Ebene kommt in Deutschland die DIN 11800 für rinderspezifische Erweiterungen hinzu \autocite[27]{n.n._adis/aded_2015}. Mittels ADED wird die Kodierung für die unterschiedlichen, zu übermittelnden Ereignisse festgelegt, der Aufbau der Datei wird mit ADIS festgelegt \autocite{landeskontrollverband_nrw_e.v._lkv_????}. Die Übertragung erfolgt dann als ISO-8859-1 kodierte Textdatei \autocite[17]{n.n._adis/aded_2015}.\\
+Mittels dieser Kodierung lassen sich Daten für verschiedene Zwecke austauschen, so zum Beispiel um MLP-Ergebnisse zu übermitteln, Tiermeldungen vorzunehmen oder unterschiedliche Geräte in der Tierhaltung aufeinander abzustimmen. Wichtig für den funktionierenden Austausch ist die Definition einer gemeinsamen Kodierung, eines einheitlichen Formats und einer Schnittstelle, über die die Daten übertragen werden. Die genannten nationalen und internationalen Normen legen dabei einen Rahmen fest.
+\paragraph{ADED}
+Die Eintragungen nach ADED lassen sich in verschiedene \textbf{Datenelemente} gliedern, die jeweils mit einer eignen sechsstelligen Nummer als Identifier versehen sind \autocite[16]{n.n._adis/aded_2015}. Datenelemente, die eine wiederkehrende logische Gruppe bilden, stellen ein \textbf{Datenobjekt} (Entität) dar, die ebenfalls mit einer eindeutigen sechsstelligen Nummer gekennzeichnet wird \autocite[17]{n.n._adis/aded_2015}. Beispiel ist Zusammenstellung aller Milchmengen aus einer Messreihe als Einheit unter einer einheitlichen Nummer. ADED-Datenelemente besitzen außer der Nummer noch weitere belegbare Eigenschaften: Name, Synonyme, Definition, Kommentare, Format (Datentyp, Feldlänge, Auflösung/Zahl der Dezimalstellen), Einheit, Werte \autocite[16]{n.n._adis/aded_2015}. ADED-Datenobjekte besitzen als weiter Eigenschaften: Name, Definition, Schlüsselelemente und Datenelemente \autocite[18]{n.n._adis/aded_2015}. Ein Sonderfall des ADED-Datenobjekts ist der \textbf{Header}, der allgemeine Eigenschaften der mit ADED kodierten Informationen beschreibt \autocite[19]{n.n._adis/aded_2015}.
+\paragraph{ADIS}
+Als Implementierung von ADED für die Übertragung von Informationen zwischen unterschiedlichen Systemen wird ADIS verwendet, das den Aufbau der zu übertragenden Dateien festlegt \autocite{landeskontrollverband_nrw_e.v._lkv_????}. Jedes Merkmal innerhalb der ADIS-Datei wird in Form eines ADED-kodierten Datenelements gespeichert. Mehrere dieser Datenelemente zusammen ergeben eine Datenentität (s.o.), von der in einer ADIS-Datei mehrere vorkommen. Für die maschinelle Lesbarkeit einer ADIS-Datei existieren weitere Zeichen innerhalb des ADIS-Standards, diese sind ausgeschrieben:
+\begin{itemize}
+	\item <CR> : Wagenrücklauf → Zeilenanfang \autocite[5]{n.n._adis/aded_2015}
+	\item <LF> : Zeilenvorschub \autocite[5]{n.n._adis/aded_2015}
+	\item | : Fehlercode für unbekannte DDI-Nummer \autocite[5]{n.n._adis/aded_2015}
+	\item ? : Nullwert \autocite[5]{n.n._adis/aded_2015}
+\end{itemize}
+Weiterhin existieren Steuerzeichen für den Beginn einer Zeile, die den Typ der Zeile ausgeben und angeben, welche Daten in der Zeile vorhanden sind \autocite[6]{n.n._adis/aded_2015}. Diese stehen jeweils zu Beginn einer Zeile. Wichtig sind folgende Zeichen:
+\begin{itemize}
+	\item D : Definition des folgenden Blocks \autocite[6]{n.n._adis/aded_2015}
+	\item V : Zeile mit Datenwerten \autocite[6]{n.n._adis/aded_2015}
+	\item T : Ende eines Datenblocks \autocite[6]{n.n._adis/aded_2015}
+	\item Z : Ende der Datei \autocite[6]{n.n._adis/aded_2015}
+\end{itemize}
+Hinter der ersten Zeichen steht ein Statuszeichen, das die Funktion der Daten in der Zeile beschreibt \autocite[7]{n.n._adis/aded_2015}. Wichtig sind dabei folgende Zeichen:
+\begin{itemize}
+	\item H : Header-Daten, enthält Informationen über den Aufbau der Datei \autocite[8]{n.n._adis/aded_2015}
+	\item N : Normal-Daten, sollen den Datenbestand des Empfängers aktualisieren \autocite[8]{n.n._adis/aded_2015}
+\end{itemize}
+Die nächsten sechs Stellen einer Zeile bestehen aus einer Nummer, die als Ereignisnummer bezeichnet wird und in unterschiedlicher Weise genutzt werden kann \autocite[9]{n.n._adis/aded_2015}. Bereits im Vorfeld der Kommunikation zwischen den Partnern muss die verwendete Kodierung bekannt sein \autocite[9]{n.n._adis/aded_2015}, mögliche Übersetzungstabellen sind dabei die Normen, firmenspezifische Definitionen sind möglich. Möglich ist die spezifizierte Reihenfolge der Nummern nacheinander, ebenso wie die unspezifizierte Reihenfolge der Nummern \autocite[9]{n.n._adis/aded_2015}.
+
+%\section{Aufbau von ADIS-Dateien mittels ADED}
+%Mittels ADED kodierte ADIS-Dateien haben als Textdateien einen definierten Aufbau, der im folgenden beschrieben wird. Für die fehlerfreie Auswertung von Inhalten ist es wichtig, dass sowohl für das Enkodieren als auch für das Dekodieren der gleiche ADED-Schlüssel verwendet wird. Der Aufbau der Datei stellt sich wie folgt zusammen:
+%\begin{enumerate}
+%	\item Als erste Ziffer in einer ADIS-Datei steht eine definierte Zahl. Dabei steht „9“ für ein ISO-genormtes Dokument, „1 - 8“ stehen für national genormte Dokumente (z.B. gemäß DIN 11800)  und die „0“ für ein herstellerspezifisches Dokument \autocite{landeskontrollverband_nrw_e.v._lkv_????-1}.
+	
+%\end{enumerate}
+%\begin{lstlisting}[language=bash]
+
+%\end{lstlisting}
+
+\section{Datenaustausch zwischen Anwendungen in der Haltung von Milchkühen}
+Der Datenaustausch zwischen unterschiedlichen Anwendungen der Haltung von Milchkühen ist überwiegend historisch gewachsen und auf den Datenaustausch zwischen Anwendungen eines Herstellers ausgelegt \autocite[16]{schulze_c._hybride_2008}. In der Milchkuhhaltung lässt sich, abhängig von der verwendeten Software, eine Datenintegration über weitere externe Partner, wie zum Beispiel die Fütterungsberatung, Klauenpflege und die tierärztliche Bestandsbetreuung, erreichen.\\
+Da viele Anwendungen in der Landwirtschaft automatisiert Prozessdaten erfassen, die für eine Optimierung landwirtschaftlicher Prozesse notwendig sind, existieren mittlerweile Ansätze für den automatisierten Austausch landwirtschaftlicher Daten \autocite{dlqdata_dlq_????}.
+Solche Austauschpunkte existieren in Deutschland bei \url{http://dlqdata.de} und in den Niederlanden bei \url{http://smartdairyfarming.nl/}. Darüber hinaus bestehen in einzelnen Programmen definierte Schnittstellen, über die ein Datenaustausch möglich ist und bei denen Dateien in definierten Formaten, wie ADED kodierte ADIS-Dateien, json-, zip- oder xml-Dateien ausgetauscht werden können.
+Teilweise ist der Datenaustausch, wie im Fall von \url{http://dlqdata.de}, auch als Webservice über die Server des Projektes möglich \autocite{dlqdata_dlq_????-1}. 
